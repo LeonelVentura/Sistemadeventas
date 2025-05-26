@@ -1,7 +1,7 @@
 <?php 
 include ("app/config.php");
 include ("layout/sesion.php");
-
+//hola mundo
 include ("layout/parte1.php");?>
 
 <!-- Content Wrapper. Contains page content -->
