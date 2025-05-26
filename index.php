@@ -1,7 +1,7 @@
 <?php 
 include ("app/config.php");
 include ("layout/sesion.php");
-
+//merge
 include ("layout/parte1.php");?>
 
 <!-- Content Wrapper. Contains page content -->
