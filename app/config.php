@@ -20,3 +20,4 @@ $URL = "http://localhost/sistemadeventas";
 date_default_timezone_set("America/Lima");
 $fechaHora = date('Y-m-d H:i:s');
 
+/////
