@@ -8,6 +8,7 @@ if(isset($_SESSION['sesion email'])){
   $query->execute();
   $usuarios = $query->fetchAll(PDO::FETCH_ASSOC);
   foreach ($usuarios as $usuario){
+    $id_usuario_sesion = $usuario['id_usuario'];
     $nombres_sesion = $usuario['nombres'];
   }
   
