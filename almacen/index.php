@@ -41,56 +41,59 @@ include('../app/controllers/almacen/listado_de_productos.php');
             </div>
 
             <div class="card-body" style="display:block;">
-              <table id="example1" class="table table-bordered table-striped">
-                <thead>
-                  <tr>
-                    <th>
-                      <center>Nro</center>
-                    </th>
-                    <th>
-                      <center>Código</center>
-                    </th>
-                    <th>
-                      <center>Categoria</center>
-                    </th>
-                    <th>
-                      <center>Imagen </center>
-                    </th>
-                    <th>
-                      <center>Nombre</center>
-                    </th>
-                    <th>
-                      <center>Descripcion</center>
-                    </th>
-                    <th>
-                      <center>Stock</center>
-                    </th>
-                    <th>
-                      <center>Stock minimo</center>
-                    </th>
-                    <th>
-                      <center>Stock máximo </center>
-                    </th>
-                    <th>
-                      <center>Precio compra </center>
-                    </th>
+             <div class="table table-responsive"> 
+            <table id="example1" class="table table-bordered table-striped table-sm">
+                  <thead>
+                    <tr>
+                      <th>
+                        <center>Nro</center>
+                      </th>
+                      <th>
+                        <center>Código</center>
+                      </th>
+                      <th>
+                        <center>Categoria</center>
+                      </th>
+                      <th>
+                        <center>Imagen </center>
+                      </th>
+                      <th>
+                        <center>Nombre</center>
+                      </th>
+                      <th>
+                        <center>Descripcion</center>
+                      </th>
+                      <th>
+                        <center>Stock</center>
+                      </th>
+                      <th>
+                        <center>Stock minimo</center>
+                      </th>
+                      <th>
+                        <center>Stock máximo </center>
+                      </th>
+                      <th>
+                        <center>Precio compra </center>
+                      </th>
 
-                    <th>
-                      <center>Precio venta </center>
-                    </th>
+                      <th>
+                        <center>Precio venta </center>
+                      </th>
 
-                    <th>
-                      <center>Usuario</center>
-                    </th>
-                    <th>
-                      <center>Acciones </center>
-                    </th>
-                  </tr>
-                </thead>
+                      <th>
+                        <center>Usuario</center>
+                      </th>
+                      <th>
+                        <center>Acciones </center>
+                      </th>
+                    </tr>
+                  </thead>
+                  </div>
                 <tbody>
                   <?php
                   $contador = 0;
-                  foreach ($productos_datos as $productos_dato) { ?>
+                  foreach ($productos_datos as $productos_dato) { 
+                   $id_producto = $productos_dato['id_producto']; ?>
                     <tr>
                       <td><?php echo $contador = $contador + 1; ?></td>
                       <td><?php echo $productos_dato['codigo']; ?></td>
@@ -108,8 +111,7 @@ include('../app/controllers/almacen/listado_de_productos.php');
                       <td><?php echo $productos_dato['nombre']; ?></td>
                       <td><?php echo $productos_dato['descripción']; ?></td>
                       <td><?php echo $productos_dato['stock']; ?></td>
-                      <td><?php echo $productos_dato['stock_minimo']; ?></td>
-                      <td><?php echo $productos_dato['stock_maximo']; ?></td>
+
                       <td><?php echo $productos_dato['precio_compra']; ?></td>
 
                       <td><?php echo $productos_dato['precio_venta']; ?></td>
@@ -117,9 +119,9 @@ include('../app/controllers/almacen/listado_de_productos.php');
                       <td>
                         <center>
                           <div>
-                            <a href="show.php?id=<?php echo $id_usuario; ?>" type="button" class="btn btn-info"><i class="fa fa-eye"></i> Ver</a>
-                            <a href="update.php?id=<?php echo $id_usuario; ?>" type="button" class="btn btn-warning"><i class="fa fa-pencil-alt"></i> Editar</a>
-                            <a href="delete.php?id=<?php echo $id_usuario; ?>" type="button" class="btn btn-danger"><i class="fa fa-trash"></i> Borrar</a>
+                            <a href="show.php?id=<?php echo $id_producto; ?>" type="button" class="btn btn-info btn-sm"><i class="fa fa-eye"></i> Ver</a>
+                            <a href="update.php?id=<?php echo $id_producto; ?>" type="button" class="btn btn-warning btn-sm"><i class="fa fa-pencil-alt"></i> Editar</a>
+                            <a href="delete.php?id=<?php echo $id_producto; ?>" type="button" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i> Borrar</a>
                           </div>
                         </center>
 
