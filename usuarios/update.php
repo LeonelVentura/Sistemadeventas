@@ -4,7 +4,10 @@ include ("../layout/sesion.php");
 
 include ("../layout/parte1.php");
 
-include ('../app/controllers/usuarios/update_usuario.php')
+include ('../app/controllers/usuarios/update_usuario.php');
+
+include ('../app/controllers/roles/listado_de_roles.php')
+
 
 ?>
 
@@ -51,6 +54,21 @@ include ('../app/controllers/usuarios/update_usuario.php')
                                     <div class="form-group">
                                         <label for="">Email</label>
                                         <input type="email" name="email" class="form-control" value="<?php echo $email;?>" placeholder="Escriba el correo del nuevo usuario..." required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="">Rol del usuario</label>
+                                        <select name="rol" id="" class="form-control">
+                                          <?php 
+                                          foreach ($roles_datos as $roles_dato){ 
+                                            $rol_tabla = $roles_dato['rol'];
+                                            $id_rol = $roles_dato['id_rol'];?>
+                                            <option value="<?php echo $id_rol; ?>"<?php if ($rol_tabla == $rol){ ?> selected="selected" <?php } ?> >
+                                              <?php echo $rol_tabla;?>
+                                            </option>
+                                          <?php
+                                          }
+                                          ?>
+                                        </select>
                                     </div>
                                     <div class="form-group">
                                         <label for="">Contraseña</label>
