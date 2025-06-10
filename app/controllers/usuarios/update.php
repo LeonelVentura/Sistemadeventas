@@ -1,4 +1,10 @@
 <?php
+/**
+ * Created by PhpStorm.
+ * User: HILARIWEB
+ * Date: 20/1/2023
+ * Time: 08:51
+ */
 
 
 include ('../../config.php');
@@ -71,3 +77,4 @@ if($password_user == ""){
     }
 
 }
+

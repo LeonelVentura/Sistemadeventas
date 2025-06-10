@@ -7,21 +7,6 @@ include ('../layout/parte1.php');
 include ('../app/controllers/categorias/listado_de_categoria.php');
 include ('../app/controllers/almacen/cargar_producto.php');
 
-foreach ($productos_datos as $productos_dato) {
-    $codigo = $productos_dato['codigo'];
-    $nombre_categoria = $productos_dato['nombre_categoria'];
-    $nombre = $productos_dato['nombre'];
-    $email = $productos_dato['id_usuario'];
-    $descripcion = $productos_dato['descripción'];
-    $stock = $productos_dato['stock'];
-    $stock_minimo = $productos_dato['stock_minimo'];
-    $stock_maximo = $productos_dato['stock_maximo'];
-    $precio_compra = $productos_dato['precio_compra'];
-    $precio_venta = $productos_dato['precio_venta'];
-    $fecha_ingreso = $productos_dato['fecha_ingreso'];
-    $imagen = $productos_dato['imagen'];
-}
-
 ?>
 
 <!-- Content Wrapper. Contains page content -->
@@ -112,7 +97,7 @@ foreach ($productos_datos as $productos_dato) {
                                                     <div class="col-md-8">
                                                         <div class="form-group">
                                                             <label for="">Descripción del producto:</label>
-                                                            <textarea name="descripción" id="" cols="30" rows="2" class="form-control"><?php echo $descripcion;?></textarea>
+                                                            <textarea name="descripcion" id="" cols="30" rows="2" class="form-control"><?php echo $descripcion;?></textarea>
                                                         </div>
                                                     </div>
                                                 </div>

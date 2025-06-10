@@ -1,9 +1,15 @@
-<?php 
+<?php
+/**
+ * Created by PhpStorm.
+ * User: HILARIWEB
+ * Date: 18/1/2023
+ * Time: 08:47
+ */
 
-include('../../config.php');
+include ('../../config.php');
 
 session_start();
-if(isset($_SESSION['sesion email'])){
+if(isset($_SESSION['sesion_email'])){
     session_destroy();
     header('Location: '.$URL.'/');
 }

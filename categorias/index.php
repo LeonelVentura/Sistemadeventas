@@ -259,3 +259,11 @@ include ('../app/controllers/categorias/listado_de_categoria.php');
     });
 </script>
 <div id="respuesta"></div>
+
+
+
+
+
+
+
+

@@ -169,3 +169,10 @@ include ('app/controllers/proveedores/listado_de_proveedores.php');
 <!-- /.content-wrapper -->
 
 <?php include ('layout/parte2.php'); ?>
+
+
+
+
+
+
+

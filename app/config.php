@@ -1,9 +1,14 @@
 <?php
-
+/**
+ * Created by PhpStorm.
+ * User: HILARIWEB
+ * Date: 17/1/2023
+ * Time: 13:00
+ */
 define('SERVIDOR','localhost');
 define('USUARIO','root');
 define('PASSWORD','');
-define('BD','sistemadeventas');
+define('BD','sistemadeventas1');
 
 $servidor = "mysql:dbname=".BD.";host=".SERVIDOR;
 
@@ -15,9 +20,9 @@ try{
     echo "Error al conectar a la base de datos";
 }
 
-$URL = "http://localhost/sistemadeventas";
+$URL = "http://localhost/www.sistemadeventas.com";
 
-date_default_timezone_set("America/Lima");
+date_default_timezone_set("America/Caracas");
 $fechaHora = date('Y-m-d H:i:s');
 
-/////
+

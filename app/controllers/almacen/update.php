@@ -1,11 +1,18 @@
 <?php
+/**
+ * Created by PhpStorm.
+ * User: HILARIWEB
+ * Date: 30/1/2023
+ * Time: 18:47
+ */
+
 include ('../../config.php');
 
 $codigo = $_POST['codigo'];
 $id_categoria = $_POST['id_categoria'];
 $nombre = $_POST['nombre'];
 $id_usuario = $_POST['id_usuario'];
-$descripcion = $_POST['descripción'];
+$descripcion = $_POST['descripcion'];
 $stock = $_POST['stock'];
 $stock_minimo = $_POST['stock_minimo'];
 $stock_maximo = $_POST['stock_maximo'];
@@ -29,7 +36,7 @@ if($_FILES['image']['name'] != null){
 
 $sentencia = $pdo->prepare("UPDATE tb_almacen
     SET nombre=:nombre,
-        descripción=:descripcion,
+        descripcion=:descripcion,
         stock=:stock,
         stock_minimo=:stock_minimo,
         stock_maximo=:stock_maximo,
@@ -67,3 +74,6 @@ if($sentencia->execute()){
     $_SESSION['icono'] = "error";
     header('Location: '.$URL.'/almacen/update.php?id='.$id_producto);
 }
+
+
+
