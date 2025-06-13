@@ -3,42 +3,33 @@ include ('../app/config.php');
 include ('../layout/sesion.php');
 
 include ('../layout/parte1.php');
-
-
 include ('../app/controllers/usuarios/listado_de_usuarios.php');
-
-
 ?>
 
-<!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
     <div class="content-header">
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-12">
                     <h1 class="m-0">Listado de usuario</h1>
-                </div><!-- /.col -->
-            </div><!-- /.row -->
-        </div><!-- /.container-fluid -->
+                </div>
+            </div>
+        </div>
     </div>
-    <!-- /.content-header -->
 
-
-    <!-- Main content -->
     <div class="content">
         <div class="container-fluid">
-
             <div class="row">
                 <div class="col-md-12">
                     <div class="card card-outline card-primary">
                         <div class="card-header">
-                            <h3 class="card-title">Usuarios registrado</h3>
+                            <h3 class="card-title">Usuarios registrados</h3>
                             <div class="card-tools">
-                                <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
+                                <!-- Función que colapsa la tarjeta -->
+                                <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                                    <i class="fas fa-minus"></i>
                                 </button>
                             </div>
-
                         </div>
 
                         <div class="card-body" style="display: block;">
@@ -54,27 +45,37 @@ include ('../app/controllers/usuarios/listado_de_usuarios.php');
                                 </thead>
                                 <tbody>
                                 <?php
+                                // Función que cuenta e imprime los datos de cada usuario
                                 $contador = 0;
                                 foreach ($usuarios_datos as $usuarios_dato){
                                     $id_usuario = $usuarios_dato['id_usuario']; ?>
                                     <tr>
-                                        <td><center><?php echo $contador = $contador + 1;?></center></td>
-                                        <td><?php echo $usuarios_dato['nombres'];?></td>
-                                        <td><?php echo $usuarios_dato['email'];?></td>
-                                        <td><center><?php echo $usuarios_dato['rol'];?></center></td>
+                                        <td><center><?php echo ++$contador; ?></center></td>
+                                        <td><?php echo $usuarios_dato['nombres']; ?></td>
+                                        <td><?php echo $usuarios_dato['email']; ?></td>
+                                        <td><center><?php echo $usuarios_dato['rol']; ?></center></td>
                                         <td>
                                             <center>
                                                 <div class="btn-group">
-                                                    <a href="show.php?id=<?php echo $id_usuario; ?>" type="button" class="btn btn-info"><i class="fa fa-eye"></i> Ver</a>
-                                                    <a href="update.php?id=<?php echo $id_usuario; ?>" type="button" class="btn btn-success"><i class="fa fa-pencil-alt"></i> Editar</a>
-                                                    <a href="delete.php?id=<?php echo $id_usuario; ?>" type="button" class="btn btn-danger"><i class="fa fa-trash"></i> Borrar</a>
+                                                    <!-- Función para ver un usuario específico -->
+                                                    <a href="show.php?id=<?php echo $id_usuario; ?>" class="btn btn-info">
+                                                        <i class="fa fa-eye"></i> Ver
+                                                    </a>
+
+                                                    <!-- Función para editar un usuario específico -->
+                                                    <a href="update.php?id=<?php echo $id_usuario; ?>" class="btn btn-success">
+                                                        <i class="fa fa-pencil-alt"></i> Editar
+                                                    </a>
+
+                                                    <!-- Función para eliminar un usuario específico -->
+                                                    <a href="delete.php?id=<?php echo $id_usuario; ?>" class="btn btn-danger">
+                                                        <i class="fa fa-trash"></i> Borrar
+                                                    </a>
                                                 </div>
                                             </center>
                                         </td>
                                     </tr>
-                                    <?php
-                                }
-                                ?>
+                                <?php } ?>
                                 </tbody>
                                 <tfoot>
                                 <tr>
@@ -87,25 +88,19 @@ include ('../app/controllers/usuarios/listado_de_usuarios.php');
                                 </tfoot>
                             </table>
                         </div>
-
                     </div>
                 </div>
             </div>
-
-            <!-- /.row -->
-        </div><!-- /.container-fluid -->
+        </div>
     </div>
-    <!-- /.content -->
 </div>
-<!-- /.content-wrapper -->
-
 
 <?php include ('../layout/mensajes.php'); ?>
 <?php include ('../layout/parte2.php'); ?>
 
-
 <script>
     $(function () {
+        // Función que inicializa la tabla con DataTable
         $("#example1").DataTable({
             "pageLength": 5,
             "language": {
@@ -113,8 +108,6 @@ include ('../app/controllers/usuarios/listado_de_usuarios.php');
                 "info": "Mostrando _START_ a _END_ de _TOTAL_ Usuarios",
                 "infoEmpty": "Mostrando 0 a 0 de 0 Usuarios",
                 "infoFiltered": "(Filtrado de _MAX_ total Usuarios)",
-                "infoPostFix": "",
-                "thousands": ",",
                 "lengthMenu": "Mostrar _MENU_ Usuarios",
                 "loadingRecords": "Cargando...",
                 "processing": "Procesando...",
@@ -122,31 +115,27 @@ include ('../app/controllers/usuarios/listado_de_usuarios.php');
                 "zeroRecords": "Sin resultados encontrados",
                 "paginate": {
                     "first": "Primero",
-                    "last": "Ultimo",
+                    "last": "Último",
                     "next": "Siguiente",
                     "previous": "Anterior"
                 }
             },
-            "responsive": true, "lengthChange": true, "autoWidth": false,
-            buttons: [{
-                extend: 'collection',
-                text: 'Reportes',
-                orientation: 'landscape',
-                buttons: [{
-                    text: 'Copiar',
-                    extend: 'copy',
-                }, {
-                    extend: 'pdf'
-                },{
-                    extend: 'csv'
-                },{
-                    extend: 'excel'
-                },{
-                    text: 'Imprimir',
-                    extend: 'print'
-                }
-                ]
-            },
+            "responsive": true,
+            "lengthChange": true,
+            "autoWidth": false,
+            buttons: [
+                {
+                    extend: 'collection',
+                    text: 'Reportes',
+                    orientation: 'landscape',
+                    buttons: [
+                        { text: 'Copiar', extend: 'copy' },
+                        { extend: 'pdf' },
+                        { extend: 'csv' },
+                        { extend: 'excel' },
+                        { text: 'Imprimir', extend: 'print' }
+                    ]
+                },
                 {
                     extend: 'colvis',
                     text: 'Visor de columnas',
@@ -155,6 +144,4 @@ include ('../app/controllers/usuarios/listado_de_usuarios.php');
             ],
         }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
     });
-</script>
-
 </script>

@@ -3,27 +3,20 @@ include ('../app/config.php');
 include ('../layout/sesion.php');
 
 include ('../layout/parte1.php');
-
 include ('../app/controllers/roles/listado_de_roles.php');
-
 ?>
 
-<!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
     <div class="content-header">
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-12">
                     <h1 class="m-0">Registro de un nuevo usuario</h1>
-                </div><!-- /.col -->
-            </div><!-- /.row -->
-        </div><!-- /.container-fluid -->
+                </div>
+            </div>
+        </div>
     </div>
-    <!-- /.content-header -->
 
-
-    <!-- Main content -->
     <div class="content">
         <div class="container-fluid">
 
@@ -36,7 +29,6 @@ include ('../app/controllers/roles/listado_de_roles.php');
                                 <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
                                 </button>
                             </div>
-
                         </div>
 
                         <div class="card-body" style="display: block;">
@@ -55,13 +47,13 @@ include ('../app/controllers/roles/listado_de_roles.php');
                                             <label for="">Rol del usurio</label>
                                             <select name="rol" id="" class="form-control">
                                                 <?php
+                                                // Generar las opciones del select con los roles disponibles
                                                 foreach ($roles_datos as $roles_dato){?>
                                                      <option value="<?php echo $roles_dato['id_rol'];?>"><?php echo $roles_dato['rol'];?></option>
                                                 <?php
                                                 }
                                                 ?>
                                             </select>
-
                                         </div>
                                         <div class="form-group">
                                             <label for="">Contraseña</label>
@@ -85,13 +77,8 @@ include ('../app/controllers/roles/listado_de_roles.php');
                 </div>
             </div>
 
-            <!-- /.row -->
-        </div><!-- /.container-fluid -->
+        </div>
     </div>
-    <!-- /.content -->
 </div>
-<!-- /.content-wrapper -->
 
 <?php include ('../layout/parte2.php'); ?>
-
-

@@ -10,22 +10,17 @@ include ('app/controllers/almacen/listado_de_productos.php');
 include ('app/controllers/proveedores/listado_de_proveedores.php');
 ?>
 
-<!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
     <div class="content-header">
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-12">
                     <h1 class="m-0">Bienvenido al SISTEMA de VENTAS - <?php echo $rol_sesion; ?> </h1>
-                </div><!-- /.col -->
-            </div><!-- /.row -->
-        </div><!-- /.container-fluid -->
+                </div>
+            </div>
+        </div>
     </div>
-    <!-- /.content-header -->
 
-
-    <!-- Main content -->
     <div class="content">
         <div class="container-fluid">
 
@@ -34,11 +29,11 @@ include ('app/controllers/proveedores/listado_de_proveedores.php');
 
             <div class="row">
 
-
                 <div class="col-lg-3 col-6">
                     <div class="small-box bg-warning">
                         <div class="inner">
                             <?php
+                            // Contar la cantidad total de usuarios registrados
                             $contador_de_usuarios = 0;
                             foreach ($usuarios_datos as $usuarios_dato){
                                 $contador_de_usuarios = $contador_de_usuarios + 1;
@@ -58,11 +53,11 @@ include ('app/controllers/proveedores/listado_de_proveedores.php');
                     </div>
                 </div>
 
-
                 <div class="col-lg-3 col-6">
                     <div class="small-box bg-info">
                         <div class="inner">
                             <?php
+                            // Contar la cantidad total de roles registrados
                             $contador_de_roles = 0;
                             foreach ($roles_datos as $roles_dato){
                                 $contador_de_roles = $contador_de_roles + 1;
@@ -82,11 +77,11 @@ include ('app/controllers/proveedores/listado_de_proveedores.php');
                     </div>
                 </div>
 
-
                 <div class="col-lg-3 col-6">
                     <div class="small-box bg-success">
                         <div class="inner">
                             <?php
+                            // Contar la cantidad total de categorías registradas
                             $contador_de_categorias = 0;
                             foreach ($categorias_datos as $categorias_dato){
                                 $contador_de_categorias = $contador_de_categorias + 1;
@@ -106,11 +101,11 @@ include ('app/controllers/proveedores/listado_de_proveedores.php');
                     </div>
                 </div>
 
-
                 <div class="col-lg-3 col-6">
                     <div class="small-box bg-primary">
                         <div class="inner">
                             <?php
+                            // Contar la cantidad total de productos registrados
                             $contador_de_productos = 0;
                             foreach ($productos_datos as $productos_dato){
                                 $contador_de_productos = $contador_de_productos + 1;
@@ -130,14 +125,11 @@ include ('app/controllers/proveedores/listado_de_proveedores.php');
                     </div>
                 </div>
 
-
-
-
-
                 <div class="col-lg-3 col-6">
                     <div class="small-box bg-dark">
                         <div class="inner">
                             <?php
+                            // Contar la cantidad total de proveedores registrados
                             $contador_de_proveedores = 0;
                             foreach ($proveedores_datos as $proveedores_dato){
                                 $contador_de_proveedores = $contador_de_proveedores + 1;
@@ -157,21 +149,12 @@ include ('app/controllers/proveedores/listado_de_proveedores.php');
                     </div>
                 </div>
 
-
-
             </div>
-
-            <!-- /.row -->
-        </div><!-- /.container-fluid -->
+        </div>
     </div>
-    <!-- /.content -->
 </div>
-<!-- /.content-wrapper -->
 
 <?php include ('layout/parte2.php'); ?>
-
-
-
 
 
 

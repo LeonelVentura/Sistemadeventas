@@ -10,22 +10,21 @@ include ('../app/controllers/almacen/listado_de_productos.php');
 
 ?>
 
-<!-- Content Wrapper. Contains page content -->
+<!-- Contenedor principal del contenido de la página -->
 <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
+ <!-- Encabezado del contenido -->
     <div class="content-header">
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-12">
                     <h1 class="m-0">Listado de productos</h1>
-                </div><!-- /.col -->
-            </div><!-- /.row -->
-        </div><!-- /.container-fluid -->
+                </div>
+            </div>
+        </div>
     </div>
-    <!-- /.content-header -->
 
 
-    <!-- Main content -->
+    <!-- Contenido principal -->
     <div class="content">
         <div class="container-fluid">
 
@@ -61,8 +60,11 @@ include ('../app/controllers/almacen/listado_de_productos.php');
                                    </tr>
                                    </thead>
                                    <tbody>
+
+                                   
                                    <?php
                                    $contador = 0;
+                                   // Recorre cada producto y lo muestra en la tabla
                                    foreach ($productos_datos as $productos_dato){
                                        $id_producto = $productos_dato['id_producto']; ?>
                                        <tr>
@@ -75,17 +77,24 @@ include ('../app/controllers/almacen/listado_de_productos.php');
                                            <td><?php echo $productos_dato['nombre'];?></td>
                                            <td><?php echo $productos_dato['descripcion'];?></td>
                                            <?php
+                                           // Verifica el nivel de stock y cambia el color de fondo si es necesario
                                            $stock_actual = $productos_dato['stock'];
                                            $stock_maximo = $productos_dato['stock_maximo'];
                                            $stock_minimo = $productos_dato['stock_minimo'];
-                                           if($stock_actual < $stock_minimo){ ?>
-                                               <td style="background-color: #ee868b"><center><?php echo $productos_dato['stock'];?></center></td>
+                                           if($stock_actual < $stock_minimo){ 
+                                            // Stock por debajo del mínimo: fondo rojo
+                                            ?>
+                                           <td style="background-color: #ee868b"><center><?php echo $productos_dato['stock'];?></center></td>
                                            <?php
                                            }
-                                           else if($stock_actual > $stock_maximo){ ?>
+                                           else if($stock_actual > $stock_maximo){ 
+                                            // Stock por encima del máximo: fondo verde
+                                            ?>
                                                <td style="background-color: #8ac68d"><center><?php echo $productos_dato['stock'];?></center></td>
                                            <?php
-                                           }else{ ?>
+                                           }else{ 
+                                            // Stock dentro del rango permitido
+                                            ?>
                                                <td><center><?php echo $productos_dato['stock'];?></center></td>
                                            <?php
                                            }
@@ -132,6 +141,7 @@ include ('../app/controllers/almacen/listado_de_productos.php');
 
 <script>
     $(function () {
+        // Inicializa la tabla con configuraciones personalizadas
         $("#example1").DataTable({
             "pageLength": 5,
             "language": {

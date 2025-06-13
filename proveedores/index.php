@@ -10,9 +10,9 @@ include ('../app/controllers/proveedores/listado_de_proveedores.php');
 
 ?>
 
-<!-- Content Wrapper. Contains page content -->
+<!-- Contenedor principal del contenido de la página -->
 <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
+<!-- Encabezado del contenido -->
     <div class="content-header">
         <div class="container-fluid">
             <div class="row mb-2">
@@ -22,14 +22,14 @@ include ('../app/controllers/proveedores/listado_de_proveedores.php');
                             <i class="fa fa-plus"></i> Agregar Nuevo
                         </button>
                     </h1>
-                </div><!-- /.col -->
-            </div><!-- /.row -->
-        </div><!-- /.container-fluid -->
+                </div>
+            </div>
+        </div>
     </div>
-    <!-- /.content-header -->
+    <!-- Fin del encabezado del contenido -->
 
 
-    <!-- Main content -->
+    <!-- Contenido principal -->
     <div class="content">
         <div class="container-fluid">
 
@@ -84,18 +84,22 @@ include ('../app/controllers/proveedores/listado_de_proveedores.php');
                                                             data-target="#modal-update<?php echo $id_proveedor;?>">
                                                         <i class="fa fa-pencil-alt"></i> Editar
                                                     </button>
-                                                    <!-- modal para actualizar proveedor -->
+                                                    <!-- Modal para actualizar proveedor -->
                                                     <div class="modal fade" id="modal-update<?php echo $id_proveedor;?>">
                                                         <div class="modal-dialog">
                                                             <div class="modal-content">
+                                                                <!-- Encabezado del modal -->
                                                                 <div class="modal-header" style="background-color: #116f4a;color: white">
                                                                     <h4 class="modal-title">Actualización del proveedor</h4>
                                                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                                         <span aria-hidden="true">&times;</span>
                                                                     </button>
                                                                 </div>
+                                                                <!-- Cuerpo del modal con formulario de actualización -->
                                                                 <div class="modal-body">
 
+                                                                <!-- Campos de entrada para los datos del proveedor -->
+                                                                <!-- Función de entrada: nombre del proveedor -->
                                                                     <div class="row">
                                                                         <div class="col-md-6">
                                                                             <div class="form-group">
@@ -104,6 +108,7 @@ include ('../app/controllers/proveedores/listado_de_proveedores.php');
                                                                                 <small style="color: red;display: none" id="lbl_nombre<?php echo $id_proveedor;?>">* Este campo es requerido</small>
                                                                             </div>
                                                                         </div>
+                                                                        <!-- Función de entrada: celular -->
                                                                         <div class="col-md-6">
                                                                             <div class="form-group">
                                                                                 <label for="">Celular <b>*</b></label>
@@ -112,7 +117,7 @@ include ('../app/controllers/proveedores/listado_de_proveedores.php');
                                                                             </div>
                                                                         </div>
                                                                     </div>
-
+                                                                    <!-- Función de entrada: teléfono y empresa -->
                                                                     <div class="row">
                                                                         <div class="col-md-6">
                                                                             <div class="form-group">
@@ -128,7 +133,7 @@ include ('../app/controllers/proveedores/listado_de_proveedores.php');
                                                                             </div>
                                                                         </div>
                                                                     </div>
-
+                                                                    <!-- Función de entrada: email y dirección -->
                                                                     <div class="row">
                                                                         <div class="col-md-6">
                                                                             <div class="form-group">
@@ -147,19 +152,21 @@ include ('../app/controllers/proveedores/listado_de_proveedores.php');
                                                                     </div>
 
                                                                 </div>
+                                                                <!-- Pie del modal con botones de acción -->
                                                                 <div class="modal-footer justify-content-between">
                                                                     <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
                                                                     <button type="button" class="btn btn-success" id="btn_update<?php echo $id_proveedor;?>">Actualizar</button>
                                                                 </div>
                                                             </div>
-                                                            <!-- /.modal-content -->
+                                                            <!-- Fin del contenido del modal -->
                                                         </div>
-                                                        <!-- /.modal-dialog -->
+                                                        <!-- Fin del diálogo del modal -->
                                                     </div>
-                                                    <!-- /.modal -->
+                                                    <!-- Fin del modal -->
                                                     <script>
+                                                        // Función para actualizar proveedor específico
                                                         $('#btn_update<?php echo $id_proveedor;?>').click(function () {
-
+                                                            // Obtener datos desde los inputs usando el ID dinámico
                                                             var id_proveedor = '<?php echo $id_proveedor;?>';
                                                             var nombre_proveedor = $('#nombre_proveedor<?php echo $id_proveedor;?>').val();
                                                             var celular = $('#celular<?php echo $id_proveedor;?>').val();
@@ -167,7 +174,7 @@ include ('../app/controllers/proveedores/listado_de_proveedores.php');
                                                             var empresa = $('#empresa<?php echo $id_proveedor;?>').val();
                                                             var email = $('#email<?php echo $id_proveedor;?>').val();
                                                             var direccion = $('#direccion<?php echo $id_proveedor;?>').val();
-
+                                                            // Validación de campos obligatorios
                                                             if(nombre_proveedor == ""){
                                                                 $('#nombre_proveedor<?php echo $id_proveedor;?>').focus();
                                                                 $('#lbl_nombre<?php echo $id_proveedor;?>').css('display','block');
@@ -200,7 +207,7 @@ include ('../app/controllers/proveedores/listado_de_proveedores.php');
                                                         data-target="#modal-delete<?php echo $id_proveedor;?>">
                                                     <i class="fa fa-trash"></i> Borrar
                                                 </button>
-                                                <!-- modal para borrar proveedore -->
+                                                <!-- modal para borrar proveedores -->
                                                 <div class="modal fade" id="modal-delete<?php echo $id_proveedor;?>">
                                                     <div class="modal-dialog">
                                                         <div class="modal-content">
@@ -269,11 +276,11 @@ include ('../app/controllers/proveedores/listado_de_proveedores.php');
                                                             </div>
                                                             <div id="respuesta_delete<?php echo $id_proveedor;?>"></div>
                                                         </div>
-                                                        <!-- /.modal-content -->
+                                                    
                                                     </div>
-                                                    <!-- /.modal-dialog -->
+                                                  
                                                 </div>
-                                                <!-- /.modal -->
+                                              
                                                 <script>
                                                     $('#btn_delete<?php echo $id_proveedor;?>').click(function () {
 
@@ -303,12 +310,11 @@ include ('../app/controllers/proveedores/listado_de_proveedores.php');
                 </div>
             </div>
 
-            <!-- /.row -->
-        </div><!-- /.container-fluid -->
-    </div>
-    <!-- /.content -->
+            
+        </div>
+   
 </div>
-<!-- /.content-wrapper -->
+
 
 
 <?php include ('../layout/mensajes.php'); ?>
@@ -441,16 +447,16 @@ include ('../app/controllers/proveedores/listado_de_proveedores.php');
             </div>
             <div id="respuesta"></div>
         </div>
-        <!-- /.modal-content -->
+        
     </div>
-    <!-- /.modal-dialog -->
+    
 </div>
-<!-- /.modal -->
+
 
 <script>
+    // Evento al hacer clic en "Guardar proveedor"
     $('#btn_create').click(function () {
-        // alert("guardar");
-
+        // Obtener valores del formulario
         var nombre_proveedor = $('#nombre_proveedor').val();
         var celular = $('#celular').val();
         var telefono = $('#telefono').val();
@@ -458,7 +464,7 @@ include ('../app/controllers/proveedores/listado_de_proveedores.php');
         var email = $('#email').val();
         var direccion = $('#direccion').val();
 
-
+        // Validación de campos requeridos
         if(nombre_proveedor == ""){
             $('#nombre_proveedor').focus();
             $('#lbl_nombre').css('display','block');
@@ -473,15 +479,22 @@ include ('../app/controllers/proveedores/listado_de_proveedores.php');
             $('#lbl_direccion').css('display','block');
         }
         else {
+            // Enviar datos al backend por AJAX
             var url = "../app/controllers/proveedores/create.php";
-            $.get(url,{nombre_proveedor:nombre_proveedor,celular:celular,telefono:telefono,empresa:empresa,email:email,direccion:direccion},function (datos) {
-                $('#respuesta').html(datos);
+            $.get(url,{
+                nombre_proveedor:nombre_proveedor,
+                celular:celular,
+                telefono:telefono,
+                empresa:empresa,
+                email:email,
+                direccion:direccion
+            },function (datos) {
+                $('#respuesta').html(datos); // Muestra respuesta del servidor
             });
         }
-
-
     });
 </script>
+
 
 
 
