@@ -1,11 +1,11 @@
 <?php
-include ('../app/config.php');
-include ('../layout/sesion.php');
+include '../app/config.php';
+include '../layout/sesion.php';
 
-include ('../layout/parte1.php');
+include '../layout/parte1.php';
 
-include ('../app/controllers/almacen/listado_de_productos.php');
-include ('../app/controllers/categorias/listado_de_categoria.php');
+include '../app/controllers/almacen/listado_de_productos.php';
+include '../app/controllers/categorias/listado_de_categoria.php';
 
 ?>
 
@@ -58,9 +58,9 @@ include ('../app/controllers/categorias/listado_de_categoria.php');
                                                                 $cantidad_ceros = 5;
                                                                 $aux=$numero;
                                                                 $pos=strlen($numero);
-                                                                $len=$cantidad_ceros-$pos;
-                                                                for ($i=0;$i<$len;$i++){
-                                                                    $aux="0".$aux;
+                                                                $len = $cantidad_ceros - $pos;
+                                                                for ($i= 0; $i < $len ; $i++){
+                                                                    $aux= "0" . $aux;
                                                                 }
                                                                 return $aux;
                                                             }
@@ -163,7 +163,7 @@ include ('../app/controllers/categorias/listado_de_categoria.php');
                                                     <label for="">Imagen del producto</label>
                                                     <input type="file" name="image" class="form-control" id="file">
                                                     <br>
-                                                    <output id="list" style=""></output>
+                                                    <output id="list"></output>
                                                     <script>
                                                         function archivo(evt) {
                                                             var files = evt.target.files; // FileList object
