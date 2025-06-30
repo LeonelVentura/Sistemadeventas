@@ -1,35 +1,39 @@
 <?php
 
+require_once '../../config.php';
+session_start();
 
-include ('../../config.php');
+// Validar y limpiar entrada
+$nombre_categoria = isset($_GET['nombre_categoria']) ? trim($_GET['nombre_categoria']) : '';
 
-$nombre_categoria = $_GET['nombre_categoria'];
-
-$sentencia = $pdo->prepare("INSERT INTO tb_categorias
-       ( nombre_categoria, fyh_creacion) 
-VALUES (:nombre_categoria,:fyh_creacion)");
-
-$sentencia->bindParam('nombre_categoria',$nombre_categoria);
-$sentencia->bindParam('fyh_creacion',$fechaHora);
-if($sentencia->execute()){
-    session_start();
-   // echo "se registro correctamente";
-    $_SESSION['mensaje'] = "Se registro la categoría de la manera correcta";
-    $_SESSION['icono'] = "success";
-   // header('Location: '.$URL.'/categorias/');
-    ?>
-    <script>
-        location.href = "<?php echo $URL;?>/categorias";
-    </script>
-    <?php
-}else{
-    session_start();
-    $_SESSION['mensaje'] = "Error no se pudo registrar en la base de datos";
-    $_SESSION['icono'] = "error";
-  //  header('Location: '.$URL.'/categorias');
-    ?>
-    <script>
-        location.href = "<?php echo $URL;?>/categorias";
-    </script>
-    <?php
+if (empty($nombre_categoria)) {
+    $_SESSION['mensaje'] = "El nombre de la categoría no puede estar vacío.";
+    $_SESSION['icono'] = "warning";
+    echo "<script>location.href = '{$URL}/categorias';</script>";
+    exit;
 }
+
+// Obtener fecha y hora actual
+$fechaHora = date('Y-m-d H:i:s');
+
+// Preparar sentencia
+$sentencia = $pdo->prepare("
+    INSERT INTO tb_categorias (nombre_categoria, fyh_creacion)
+    VALUES (:nombre_categoria, :fyh_creacion)
+");
+
+$sentencia->bindParam(':nombre_categoria', $nombre_categoria);
+$sentencia->bindParam(':fyh_creacion', $fechaHora);
+
+// Ejecutar e informar
+if ($sentencia->execute()) {
+    $_SESSION['mensaje'] = "Se registró la categoría correctamente.";
+    $_SESSION['icono'] = "success";
+} else {
+    $_SESSION['mensaje'] = "Error: no se pudo registrar la categoría.";
+    $_SESSION['icono'] = "error";
+}
+
+// Redirigir
+echo "<script>location.href = '{$URL}/categorias';</script>";
+exit;
