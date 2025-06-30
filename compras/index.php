@@ -184,7 +184,7 @@ include ('../app/controllers/compras/listado_de_compras.php');
                                             <td>
                                                 <button type="button" class="btn btn-warning" data-toggle="modal"
                                                         data-target="#modal-proveedor<?php echo $id_compra;?>">
-                                                    <?php echo $compras_dato['nombre_proveedor'];?>
+                                                    <?php echo htmlspecialchars($compras_dato['nombre_proveedor']); ?>
                                                 </button>
 
                                                 <!-- modal para visualizar datos de los proveedor -->
@@ -270,7 +270,7 @@ include ('../app/controllers/compras/listado_de_compras.php');
                                     }
                                     ?>
                                     </tbody>
-                                    </tfoot>
+                                    
                                 </table>
                             </div>
                         </div>
@@ -344,4 +344,4 @@ include ('../app/controllers/compras/listado_de_compras.php');
     });
 </script>
 
-</script>
+
